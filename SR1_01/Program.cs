@@ -10,14 +10,19 @@ namespace SR1_01
     {
        static void Main(string[] args)
         {
-            //Dogクラスのインスタンスhachiを生成する
-            Dog hachi = new Dog();
-            hachi.Bark();
+            Dog pochi = new Dog();
 
-            //Dogクラスのインスタンスpochiを生成する
-            Dog poshi = new Dog();
-            poshi.Bark();
-            poshi.Run();
+            //コンストラクタが働いているかチェック
+            //最初の空腹状態を表示してみる
+            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
+
+            //pochiにエサを食べさせる
+            pochi.Eat();
+            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
+
+            //pochiを走らせる
+            pochi.Run();
+            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
 
             //一時停止
             Console.ReadLine();
