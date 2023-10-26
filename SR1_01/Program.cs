@@ -10,19 +10,16 @@ namespace SR1_01
     {
        static void Main(string[] args)
         {
-            Dog pochi = new Dog();
+            Player player = new Player("ロト", 1);
 
-            //コンストラクタが働いているかチェック
-            //最初の空腹状態を表示してみる
-            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
+            Console.WriteLine("名前：{0}", player.GetName());
+            Console.WriteLine("レベル：{0}", player.GetLevel());
 
-            //pochiにエサを食べさせる
-            pochi.Eat();
-            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
+            player.Attack();
+            player.Defense();
 
-            //pochiを走らせる
-            pochi.Run();
-            Console.WriteLine("空腹状態 : {0}", pochi.IsHungry());
+            player.LevelUp();
+            Console.WriteLine("レベル：{0}", player.GetLevel());
 
             //一時停止
             Console.ReadLine();
