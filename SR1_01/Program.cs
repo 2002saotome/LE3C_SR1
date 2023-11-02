@@ -10,16 +10,56 @@ namespace SR1_01
     {
        static void Main(string[] args)
         {
-            Player player = new Player("ロト", 1);
 
-            Console.WriteLine("名前：{0}", player.GetName());
-            Console.WriteLine("レベル：{0}", player.GetLevel());
+            //空飛ぶロボをテストする
+            FlyingRobot flyingRobot = new FlyingRobot("空飛ぶロボ");
 
-            player.Attack();
-            player.Defense();
+            Console.WriteLine("名前:{0}", flyingRobot.Getname());
+            Console.WriteLine("電源:{0}", flyingRobot.GetPowerStatus());
 
-            player.LevelUp();
-            Console.WriteLine("レベル：{0}", player.GetLevel());
+            flyingRobot.DropBomb();
+
+            flyingRobot.PowerOn();
+            flyingRobot.DropBomb();
+
+            flyingRobot.PowerOff();
+
+            Console.WriteLine("----------");
+
+
+            //タンクロボをテストする
+            TankRobot tankRobot = new TankRobot("タンクロボ");
+
+            Console.WriteLine("名前:{0}", tankRobot.Getname());
+            Console.WriteLine("電源:{0}", tankRobot.GetPowerStatus());
+
+            tankRobot.ShootCannon();
+
+            tankRobot.PowerOn();
+            tankRobot.ShootCannon();
+
+            tankRobot.PowerOff();
+
+            Console.WriteLine("----------");
+
+            //TankRobotクラスの実体を大量発生
+            TankRobot[] tanks = new TankRobot[5];  //配列を作っただけ
+
+            //TnakRobot 5体分の実体を作る
+            for(int i=0; i<tanks.Length;i++)
+            {
+                tanks[i] = new TankRobot("タンクNo." + i);
+            }
+
+            for(int i=0;i<tanks.Length;i++)
+            {
+                tanks[i].PowerOn();
+            }
+
+            foreach(TankRobot tank in tanks)
+            {
+                tank.ShootCannon();
+            }
 
             //一時停止
             Console.ReadLine();
